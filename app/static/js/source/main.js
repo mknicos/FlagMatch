@@ -14,7 +14,7 @@
     $('.name').click(nameGuess);
     $('.icon').click(flagGuess);
     $('#match').click(checkMatch);
-    //$('#replay').click(restartGame);
+    $('#replay').click(restartGame);
   }
   //--------globals----------//
   var timer, flagHome, nameHome;
@@ -101,18 +101,18 @@
     var flagCode = $flagGuess.attr('class');
     flagCode = flagCode.slice(15,17);
 
-    //var url = '/flag';
     var data = {countryName: countryName, flagCode: flagCode};
     $.getJSON('/flag', data, matchResponse);
 
     function matchResponse(response){
-      console.log(response);
+      //response will be true, if node found a match
+      //and false if it didnt
       var bool = response.match;
-      bool =!!bool;
+      bool =!!bool; //convert string to bool
       if(bool){
 
         //IF MATCH
-        
+
         $nameGuess.remove();
         $flagGuess.remove();
         success++;
@@ -127,14 +127,12 @@
         flagHome.append($flagGuess);
       }
     }
-    /*
-    function restartGame(){
-      location.reload(true);
-      console.log('hi');
-    }
-*/
-
   }
+//-------------RESTART-GAME---------------//
+  function restartGame(){
+    location.reload(true);
+  }
+
 
 
 
