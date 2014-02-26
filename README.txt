@@ -6,9 +6,10 @@ difficulty setting set at the start of the game;
   Game runs successfully from start to finish
 Known Bugs:
   Unexpected results when user clicks a a flag twice in a row, or a country name twie in a row.
+  Play again button not centered on screen;
 
 Future Updates
   Would like to have a victory screen rather that just an alert.
   Flag images bigger/ or their divs they are in clickable.
-
+  Play again Button
 

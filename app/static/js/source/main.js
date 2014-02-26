@@ -14,6 +14,7 @@
     $('.name').click(nameGuess);
     $('.icon').click(flagGuess);
     $('#match').click(checkMatch);
+    //$('#replay').click(restartGame);
   }
   //--------globals----------//
   var timer, flagHome, nameHome;
@@ -52,6 +53,7 @@
   }
 
   function timerCounter(){
+    //timer still ticking
     if(start !== 0){
       start--;
       $('#timer').text(start);
@@ -61,10 +63,12 @@
         $('#timer').css('color', 'red');
       }
     }else{
+     //timer runs out
       clearInterval(timer);
       $('button, div').fadeOut();
       $('.lowTime').fadeIn(2000);
       $('.fail').fadeIn(5000);
+      $('#replay').fadeIn(6000);
       $('.lowTime').text('YOU LOSE');
       $('.lowTime').css('font-size', '10em').fadeIn('slow');
       $('.lowTime').css('z-index', '100');
@@ -122,8 +126,12 @@
         flagHome.append($flagGuess);
       }
     }
-
-
+    /*
+    function restartGame(){
+      location.reload(true);
+      console.log('hi');
+    }
+*/
 
   }
 
