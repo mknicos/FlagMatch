@@ -5,8 +5,13 @@ var f2 = {country:'canada', flag:'ca'};
 var f3 = {country:'russia', flag:'ru'};
 var f4 = {country:'italy', flag:'it'};
 var f5 = {country:'france', flag:'fr'};
+var f6 = {country:'france', flag:'fr'};
+var f7 = {country:'france', flag:'fr'};
+var f8 = {country:'france', flag:'fr'};
+var f9 = {country:'france', flag:'fr'};
+var f10 = {country:'france', flag:'fr'};
 
-global.flags = [f1,f2,f3,f4,f5];
+global.flags = [f1,f2,f3,f4,f5,f6,f7,f8,f9,f10];
 /*End Answers*/
 
 

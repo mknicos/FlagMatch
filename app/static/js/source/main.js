@@ -10,8 +10,9 @@
     $('.name').click(Guess);
     $('.icon').click(Guess);
   }
+
   var timer;
-  var start = 15;
+  var start = 1000;
   var prevGuess;
 
   function startTimer(){
@@ -25,12 +26,19 @@
       if(start < 11){
         $('.lowTime').text(start);
         $('.lowTime').fadeIn('fast').fadeOut('slow');
+        $('#timer').css('color', 'red');
       }
     }else{
       clearInterval(timer);
-      $('.lowTime').text('YOU SUCK');
-      $('.lowTime').css('font-size', '25em').fadeIn('slow');
-      $('body').css('background-color', 'black');
+      $('button, div').fadeOut();
+      $('.lowTime').fadeIn(2000);
+      $('.fail').fadeIn(5000);
+      $('.lowTime').text('YOU LOSE');
+      $('.lowTime').css('font-size', '10em').fadeIn('slow');
+      $('.lowTime').css('z-index', '100');
+      $('.lowTime').css('color', 'red');
+      $('.lowTime').css('left', '20%');
+      $('body').addClass('skull');
     }
   }
 
@@ -42,16 +50,6 @@
       prevGuess = currentGuess;
     }
   }
-
-/*
-  function Guess(){
-    iconGuess = $(this).data('id');
-    if(nameGuess === iconGuess){
-      //$(this).hide();
-      $('div[data-id="'+iconGuess+'"]').hide();
-    }
-  }
-*/
 
 
 

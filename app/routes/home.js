@@ -2,9 +2,8 @@
 var _ = require('lodash');
 
 exports.index = function(req, res){
-  var random = _.random(2,4);
-  var flagF = _.sample(global.flags, random);
+  var flagF = _.sample(global.flags, 5);
   var flagC = _.shuffle(flagF);
-  res.render('home/index', {flagF: flagF, flagC: flagC, title: 'Flag Matching'});
+  res.render('home/index', {flagF: flagF, flagC: flagC, title: 'Match a Flag'});
 };
 
