@@ -6,16 +6,41 @@
 
   function initialize(){
     $(document).foundation();
-    startTimer();
-    $('.name').click(Guess);
-    $('.icon').click(Guess);
+    $('.name').click(nameGuess);
+    $('.icon').click(flagGuess);
+    $('#easy').click(startEasy);
+    $('#med').click(startMed);
+    $('#hard').click(startHigh);
   }
-
+  //--------globals----------//
   var timer;
   var start = 1000;
-  var prevGuess;
+
+  //-------start game--------//
+
+  function startEasy(event){
+    event.preventDefault();
+    start = 40;
+    startTimer();
+  }
+
+  function startMed(event){
+    event.preventDefault();
+    start = 20;
+    startTimer();
+  }
+
+  function startHigh(event){
+    event.preventDefault();
+    start = 10;
+    startTimer();
+  }
+
+  //--------start timer-------//
 
   function startTimer(){
+    $('#namesWrapper, #flagsWrapper, #matchWrapper').fadeIn('fast');
+    
     timer = setInterval(timerCounter,1000);
   }
 
@@ -42,13 +67,12 @@
     }
   }
 
-  function Guess(){
-    var currentGuess = $(this).data('id');
-    if(currentGuess === prevGuess){
-      $('div[data-id="'+currentGuess+'"]').hide();
-    }else{
-      prevGuess = currentGuess;
-    }
+  function nameGuess(){
+
+  }
+
+  function flagGuess(){
+
   }
 
 

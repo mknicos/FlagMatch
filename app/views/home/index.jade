@@ -16,6 +16,14 @@ html(class='no-js', lang='en')
     .row
       .small-12.columns
         h1=title
+        .small-8.small-centered.columns
+          h3 Select A Level
+          #startButtons
+            button#easy Wimpy
+            button#med Normal
+            button#hard Stretch First
+    .row
+      .small-3.small-centered.columns
         #timer
     .row
       .small-12.columns
@@ -26,7 +34,7 @@ html(class='no-js', lang='en')
           #flagsWrapper
             each f in flagF
               .flags
-                .icon.flag(class='flag-' + f.flag, data-id=f.flag)
+                .icon.flag(class='flag-' + f.flag)
         .small-4.columns
           #matchWrapper
             #flagMatch
@@ -36,7 +44,7 @@ html(class='no-js', lang='en')
           #namesWrapper
             each f in flagC
               .names
-                .name(data-id=f.flag)= f.country
+                .name= f.country
       .small-3.columns
     .row
       .small-3.small-centered.columns
