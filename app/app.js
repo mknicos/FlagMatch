@@ -8,7 +8,7 @@ var f5 = {country:'Greece', flag:'gr'};
 var f6 = {country:'Australia', flag:'au'};
 var f7 = {country:'Germany', flag:'de'};
 var f8 = {country:'Ireland', flag:'ir'};
-var f9 = {country:'Russia', flag:'ru'};
+var f9 = {country:'Mexico', flag:'mx'};
 var f10 = {country:'Spain', flag:'es'};
 
 global.flags = [f1,f2,f3,f4,f5,f6,f7,f8,f9,f10];

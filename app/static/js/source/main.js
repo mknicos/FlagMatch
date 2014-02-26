@@ -16,10 +16,9 @@
     $('#match').click(checkMatch);
   }
   //--------globals----------//
-  var timer;
-  var start = 1000;
-  var flagHome;
-  var nameHome;
+  var timer, flagHome, nameHome;
+  var start = 1000; //start of timer on easy mode
+  var success = 0; //used to calculate when game is won
 
   //-------Select Difficulty--------//
 
@@ -90,14 +89,34 @@
   }
 
   function checkMatch(){
-    debugger;
-    var nameGuess = $('#nameMatch').children(':first');
-    var flagGuess = $('#flagMatch').children(':first');
+    var $nameGuess = $('#nameMatch').children(':first');
+    var $flagGuess = $('#flagMatch').children(':first');
 
-    //IF NO MATCH//
+    var countryName = $nameGuess.text();
+    var flagCode = $flagGuess.attr('class');
+    flagCode = flagCode.slice(15,17);
 
-    nameHome.append(nameGuess);
-    flagHome.append(flagGuess);
+    //var url = '/flag';
+    var data = {countryName: countryName, flagCode: flagCode};
+    $.getJSON('/flag', data, matchResponse);
+
+    function matchResponse(response){
+      console.log(response);
+      var bool = response.match;
+      bool =!!bool;
+      if(bool){
+        alert('match');
+
+      }else{
+
+        //IF NO MATCH//
+        nameHome.append($nameGuess);
+        flagHome.append($flagGuess);
+      }
+    }
+
+
+
   }
 
 
