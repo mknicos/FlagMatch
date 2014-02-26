@@ -46,6 +46,7 @@
   function startTimer(){
     $('#startButtons').hide();
     $('h3').hide();
+    $('#gifWrapper').hide();
     $('#timer').fadeIn();
     $('#namesWrapper, #flagsWrapper, #matchWrapper').fadeIn('fast');
     
