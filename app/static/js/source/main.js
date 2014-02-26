@@ -6,21 +6,26 @@
 
   function initialize(){
     $(document).foundation();
-    $('.name').click(nameGuess);
-    $('.icon').click(flagGuess);
+    
     $('#easy').click(startEasy);
     $('#med').click(startMed);
     $('#hard').click(startHigh);
+
+    $('.name').click(nameGuess);
+    $('.icon').click(flagGuess);
+    $('#match').click(checkMatch);
   }
   //--------globals----------//
   var timer;
   var start = 1000;
+  var flagHome;
+  var nameHome;
 
-  //-------start game--------//
+  //-------Select Difficulty--------//
 
   function startEasy(event){
     event.preventDefault();
-    start = 40;
+    start = 1000;
     startTimer();
   }
 
@@ -36,9 +41,12 @@
     startTimer();
   }
 
-  //--------start timer-------//
+  //--------start game-------//
 
   function startTimer(){
+    $('#startButtons').hide();
+    $('h3').hide();
+    $('#timer').fadeIn();
     $('#namesWrapper, #flagsWrapper, #matchWrapper').fadeIn('fast');
     
     timer = setInterval(timerCounter,1000);
@@ -67,13 +75,31 @@
     }
   }
 
-  function nameGuess(){
+  //---------Guesses Picked-------------//
 
+  function nameGuess(){
+    nameHome = $(this).parent();
+    var guess = $(this);
+    $('#nameMatch').append(guess);
   }
 
   function flagGuess(){
-
+    flagHome = $(this).parent();
+    var guess = $(this);
+    $('#flagMatch').append(guess);
   }
+
+  function checkMatch(){
+    debugger;
+    var nameGuess = $('#nameMatch').children(':first');
+    var flagGuess = $('#flagMatch').children(':first');
+
+    //IF NO MATCH//
+
+    nameHome.append(nameGuess);
+    flagHome.append(flagGuess);
+  }
+
 
 
 
