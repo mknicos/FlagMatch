@@ -17,26 +17,26 @@
   }
   //--------globals----------//
   var timer, flagHome, nameHome;
-  var start = 1000; //start of timer on easy mode
+  var start = 0; //timer display
   var success = 0; //used to calculate when game is won
 
   //-------Select Difficulty--------//
 
   function startEasy(event){
     event.preventDefault();
-    start = 1000;
+    start = 35;
     startTimer();
   }
 
   function startMed(event){
     event.preventDefault();
-    start = 20;
+    start = 25;
     startTimer();
   }
 
   function startHigh(event){
     event.preventDefault();
-    start = 10;
+    start = 12;
     startTimer();
   }
 
@@ -105,8 +105,16 @@
       var bool = response.match;
       bool =!!bool;
       if(bool){
-        alert('match');
 
+        //IF MATCH
+        
+        $nameGuess.remove();
+        $flagGuess.remove();
+        success++;
+        if(success > 4){ //End of game
+          clearInterval(timer);
+          alert('Youve Won!');
+        }
       }else{
 
         //IF NO MATCH//
